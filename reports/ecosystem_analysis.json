@@ -1,79 +1,307 @@
 {
-  "generated_at": "2026-01-05T16:24:44.271702",
+  "generated_at": "2026-01-05T17:23:10.105160",
   "tech_stack_combinations": {
     "cad": [
       {
         "language": "Python",
-        "count": 14
+        "count": 233
+      },
+      {
+        "language": "JavaScript",
+        "count": 29
       },
       {
         "language": "C#",
-        "count": 8
+        "count": 28
+      },
+      {
+        "language": "C++",
+        "count": 26
+      },
+      {
+        "language": "Jupyter Notebook",
+        "count": 25
+      },
+      {
+        "language": "HTML",
+        "count": 18
+      },
+      {
+        "language": "MATLAB",
+        "count": 16
+      },
+      {
+        "language": "Java",
+        "count": 16
+      },
+      {
+        "language": "C",
+        "count": 10
+      },
+      {
+        "language": "TypeScript",
+        "count": 7
+      },
+      {
+        "language": "Processing",
+        "count": 5
+      },
+      {
+        "language": "Rust",
+        "count": 4
+      },
+      {
+        "language": "Julia",
+        "count": 4
+      },
+      {
+        "language": "Dockerfile",
+        "count": 4
+      },
+      {
+        "language": "TeX",
+        "count": 3
+      },
+      {
+        "language": "Matlab",
+        "count": 2
+      },
+      {
+        "language": "Makefile",
+        "count": 2
+      },
+      {
+        "language": "Go",
+        "count": 2
+      },
+      {
+        "language": "Fortran",
+        "count": 2
+      },
+      {
+        "language": "Vue",
+        "count": 1
       },
       {
         "language": "VBA",
         "count": 1
       },
       {
-        "language": "TypeScript",
+        "language": "SystemVerilog",
         "count": 1
       },
       {
-        "language": "JavaScript",
+        "language": "Swift",
         "count": 1
       },
       {
-        "language": "Java",
+        "language": "Shell",
         "count": 1
       },
       {
-        "language": "Go",
+        "language": "Scala",
         "count": 1
       },
       {
-        "language": "Dockerfile",
+        "language": "SWIG",
         "count": 1
       },
       {
-        "language": "C++",
+        "language": "Racket",
+        "count": 1
+      },
+      {
+        "language": "Perl",
+        "count": 1
+      },
+      {
+        "language": "Objective-C",
+        "count": 1
+      },
+      {
+        "language": "OCaml",
+        "count": 1
+      },
+      {
+        "language": "Max",
+        "count": 1
+      },
+      {
+        "language": "Mathematica",
+        "count": 1
+      },
+      {
+        "language": "Logos",
+        "count": 1
+      },
+      {
+        "language": "HolyC",
+        "count": 1
+      },
+      {
+        "language": "Haskell",
+        "count": 1
+      },
+      {
+        "language": "GDScript",
+        "count": 1
+      },
+      {
+        "language": "G-code",
+        "count": 1
+      },
+      {
+        "language": "Erlang",
+        "count": 1
+      },
+      {
+        "language": "Emacs Lisp",
+        "count": 1
+      },
+      {
+        "language": "Common Lisp",
+        "count": 1
+      },
+      {
+        "language": "Clojure",
+        "count": 1
+      },
+      {
+        "language": "Ada",
         "count": 1
       }
     ],
     "circuit": [
       {
         "language": "Python",
-        "count": 9
+        "count": 48
       },
       {
         "language": "C++",
-        "count": 2
+        "count": 22
+      },
+      {
+        "language": "Verilog",
+        "count": 14
       },
       {
         "language": "C",
-        "count": 2
+        "count": 13
       },
       {
-        "language": "TypeScript",
-        "count": 1
-      },
-      {
-        "language": "Rust",
-        "count": 1
+        "language": "Shell",
+        "count": 11
       },
       {
         "language": "Jupyter Notebook",
-        "count": 1
+        "count": 5
       },
       {
         "language": "Java",
-        "count": 1
+        "count": 5
+      },
+      {
+        "language": "HTML",
+        "count": 4
+      },
+      {
+        "language": "TypeScript",
+        "count": 3
+      },
+      {
+        "language": "Julia",
+        "count": 3
       },
       {
         "language": "Dockerfile",
-        "count": 1
+        "count": 3
       },
       {
         "language": "C#",
+        "count": 3
+      },
+      {
+        "language": "SystemVerilog",
+        "count": 2
+      },
+      {
+        "language": "Rust",
+        "count": 2
+      },
+      {
+        "language": "JavaScript",
+        "count": 2
+      },
+      {
+        "language": "Coq",
+        "count": 2
+      },
+      {
+        "language": "Assembly",
+        "count": 2
+      },
+      {
+        "language": "AGS Script",
+        "count": 2
+      },
+      {
+        "language": "VHDL",
+        "count": 1
+      },
+      {
+        "language": "TeX",
+        "count": 1
+      },
+      {
+        "language": "Swift",
+        "count": 1
+      },
+      {
+        "language": "SourcePawn",
+        "count": 1
+      },
+      {
+        "language": "Ruby",
+        "count": 1
+      },
+      {
+        "language": "R",
+        "count": 1
+      },
+      {
+        "language": "PureBasic",
+        "count": 1
+      },
+      {
+        "language": "Prolog",
+        "count": 1
+      },
+      {
+        "language": "PowerShell",
+        "count": 1
+      },
+      {
+        "language": "Perl",
+        "count": 1
+      },
+      {
+        "language": "Nix",
+        "count": 1
+      },
+      {
+        "language": "Matlab",
+        "count": 1
+      },
+      {
+        "language": "MDX",
+        "count": 1
+      },
+      {
+        "language": "Haskell",
+        "count": 1
+      },
+      {
+        "language": "Eagle",
         "count": 1
       }
     ],
@@ -236,17 +464,42 @@
   },
   "temporal_trends": {
     "creation_trends": {
-      "circuit": {
+      "cad": {
         "2009": 1,
-        "2013": 1,
-        "2014": 1,
-        "2017": 3,
-        "2018": 1,
-        "2019": 2,
-        "2020": 3,
-        "2022": 2,
-        "2023": 4,
-        "2025": 2
+        "2010": 4,
+        "2011": 8,
+        "2012": 5,
+        "2013": 16,
+        "2014": 10,
+        "2015": 29,
+        "2016": 23,
+        "2017": 32,
+        "2018": 58,
+        "2019": 46,
+        "2020": 45,
+        "2021": 40,
+        "2022": 45,
+        "2023": 36,
+        "2024": 56,
+        "2025": 81
+      },
+      "circuit": {
+        "2009": 2,
+        "2010": 2,
+        "2012": 3,
+        "2013": 6,
+        "2014": 3,
+        "2015": 3,
+        "2016": 5,
+        "2017": 16,
+        "2018": 10,
+        "2019": 18,
+        "2020": 22,
+        "2021": 32,
+        "2022": 13,
+        "2023": 30,
+        "2024": 13,
+        "2025": 14
       },
       "latex": {
         "2009": 1,
@@ -265,19 +518,6 @@
         "2024": 17,
         "2025": 17
       },
-      "cad": {
-        "2011": 1,
-        "2012": 1,
-        "2016": 3,
-        "2018": 4,
-        "2019": 1,
-        "2020": 5,
-        "2021": 7,
-        "2022": 1,
-        "2023": 1,
-        "2024": 1,
-        "2025": 7
-      },
       "framework": {
         "2013": 1,
         "2016": 1,
@@ -293,14 +533,16 @@
     },
     "update_trends": {
       "cad": {
-        "last_month": 25,
-        "last_quarter": 4,
-        "last_year": 2,
-        "older": 1
+        "last_month": 206,
+        "last_quarter": 91,
+        "last_year": 109,
+        "older": 129
       },
       "circuit": {
-        "last_month": 15,
-        "last_quarter": 5
+        "last_month": 103,
+        "last_quarter": 32,
+        "last_year": 37,
+        "older": 20
       },
       "framework": {
         "last_month": 131,
@@ -559,6 +801,15 @@
       "activity_score": 89.99
     },
     {
+      "domain": "cad",
+      "name": "Optima-CityU/LLM4AD",
+      "stars": 562,
+      "forks": 56,
+      "created_at": "2024-11-26T09:00:57Z",
+      "last_updated": "2026-01-04T07:48:25Z",
+      "activity_score": 70.0
+    },
+    {
       "domain": "framework",
       "name": "openai/openai-assistants-quickstart",
       "stars": 1970,
@@ -568,22 +819,13 @@
       "activity_score": 69.4
     },
     {
-      "domain": "latex",
-      "name": "RICHQAQ/PasteMD",
-      "stars": 2584,
-      "forks": 178,
-      "created_at": "2025-10-25",
-      "last_updated": "2025-12-31",
-      "activity_score": 64.74
-    },
-    {
-      "domain": "framework",
-      "name": "jgravelle/AutoGroq",
-      "stars": 1482,
-      "forks": 464,
-      "created_at": "2024-03-29",
-      "last_updated": "2025-12-29",
-      "activity_score": 64.62
+      "domain": "circuit",
+      "name": "iic-jku/analog-circuit-design",
+      "stars": 174,
+      "forks": 29,
+      "created_at": "2024-07-18T09:38:31Z",
+      "last_updated": "2026-01-02T14:55:52Z",
+      "activity_score": 65.0
     }
   ],
   "domain_maturity": {
@@ -593,32 +835,32 @@
       "max_stars": 69901,
       "avg_forks": 199.0,
       "avg_activity_score": 37.1,
-      "avg_age_days": 2062.0,
+      "avg_age_days": 2063.0,
       "mature_projects": 20,
       "new_projects_2024": 34,
       "maturity_score": 46.9
     },
     "cad": {
-      "total_projects": 32,
-      "avg_stars": 697.0,
+      "total_projects": 535,
+      "avg_stars": 128.0,
       "max_stars": 17299,
-      "avg_forks": 88.0,
-      "avg_activity_score": 32.8,
-      "avg_age_days": 1875.0,
-      "mature_projects": 1,
-      "new_projects_2024": 8,
-      "maturity_score": 32.0
+      "avg_forks": 21.0,
+      "avg_activity_score": 37.1,
+      "avg_age_days": 1981.0,
+      "mature_projects": 11,
+      "new_projects_2024": 137,
+      "maturity_score": 15.8
     },
     "circuit": {
-      "total_projects": 20,
-      "avg_stars": 194.0,
-      "max_stars": 782,
-      "avg_forks": 44.0,
-      "avg_activity_score": 32.3,
-      "avg_age_days": 2267.0,
-      "mature_projects": 0,
-      "new_projects_2024": 2,
-      "maturity_score": 15.5
+      "total_projects": 192,
+      "avg_stars": 98.0,
+      "max_stars": 1981,
+      "avg_forks": 24.0,
+      "avg_activity_score": 42.9,
+      "avg_age_days": 1974.0,
+      "mature_projects": 2,
+      "new_projects_2024": 27,
+      "maturity_score": 16.3
     },
     "framework": {
       "total_projects": 138,

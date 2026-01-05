@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-01-05T16:23:55.779094",
-  "total_projects": 328,
+  "generated_at": "2026-01-05T17:22:53.968149",
+  "total_projects": 1003,
   "domain_stats": {
+    "cad": {
+      "count": 535,
+      "avg_stars": 128,
+      "max_stars": 17299,
+      "avg_quality": 37
+    },
+    "circuit": {
+      "count": 192,
+      "avg_stars": 98,
+      "max_stars": 1981,
+      "avg_quality": 43
+    },
     "framework": {
       "count": 138,
       "avg_stars": 10021,
@@ -13,37 +25,25 @@
       "avg_stars": 1515,
       "max_stars": 69901,
       "avg_quality": 37
-    },
-    "cad": {
-      "count": 32,
-      "avg_stars": 697,
-      "max_stars": 17299,
-      "avg_quality": 33
-    },
-    "circuit": {
-      "count": 20,
-      "avg_stars": 194,
-      "max_stars": 782,
-      "avg_quality": 32
     }
   },
   "tech_stack": {
     "overall": {
-      "Python": 138,
-      "TypeScript": 47,
-      "Jupyter Notebook": 23,
-      "TeX": 19,
-      "JavaScript": 17,
-      "C#": 11,
-      "Java": 9,
-      "HTML": 8,
-      "C++": 7,
-      "Go": 3,
-      "Shell": 3,
-      "Rust": 3,
-      "Emacs Lisp": 3,
-      "Lua": 3,
-      "Swift": 3
+      "Python": 396,
+      "TypeScript": 55,
+      "Jupyter Notebook": 52,
+      "C++": 52,
+      "JavaScript": 47,
+      "C#": 33,
+      "HTML": 30,
+      "Java": 28,
+      "TeX": 23,
+      "C": 23,
+      "MATLAB": 16,
+      "Shell": 15,
+      "Verilog": 14,
+      "Rust": 8,
+      "Julia": 7
     },
     "by_domain": {
       "framework": {
@@ -71,36 +71,38 @@
         "C++": 3
       },
       "cad": {
-        "Python": 14,
-        "C#": 8,
-        "TypeScript": 1,
-        "Go": 1,
-        "VBA": 1,
-        "Dockerfile": 1,
-        "JavaScript": 1,
-        "Java": 1,
-        "C++": 1
+        "Python": 233,
+        "JavaScript": 29,
+        "C#": 28,
+        "C++": 26,
+        "Jupyter Notebook": 25,
+        "HTML": 18,
+        "Java": 16,
+        "MATLAB": 16,
+        "C": 10,
+        "TypeScript": 7
       },
       "circuit": {
-        "Python": 9,
-        "C": 2,
-        "C++": 2,
-        "Jupyter Notebook": 1,
-        "C#": 1,
-        "TypeScript": 1,
-        "Dockerfile": 1,
-        "Java": 1,
-        "Rust": 1
+        "Python": 48,
+        "C++": 22,
+        "Verilog": 14,
+        "C": 13,
+        "Shell": 11,
+        "Java": 5,
+        "Jupyter Notebook": 5,
+        "HTML": 4,
+        "C#": 3,
+        "TypeScript": 3
       }
     }
   },
   "activity": {
     "overall": {
-      "highly_active": 273,
-      "active": 43,
-      "moderate": 6,
-      "low": 3,
-      "inactive": 3
+      "highly_active": 541,
+      "active": 157,
+      "moderate": 74,
+      "low": 80,
+      "inactive": 151
     },
     "by_domain": {
       "framework": {
@@ -118,18 +120,18 @@
         "inactive": 2
       },
       "cad": {
-        "highly_active": 56,
-        "active": 4,
-        "moderate": 2,
-        "low": 0,
-        "inactive": 1
+        "highly_active": 237,
+        "active": 91,
+        "moderate": 53,
+        "low": 56,
+        "inactive": 129
       },
       "circuit": {
-        "highly_active": 120,
-        "active": 6,
-        "moderate": 0,
-        "low": 0,
-        "inactive": 0
+        "highly_active": 179,
+        "active": 32,
+        "moderate": 17,
+        "low": 21,
+        "inactive": 20
       }
     }
   },
@@ -199,64 +201,64 @@
       ],
       "high_quality": [
         {
-          "name": "breezedeus/Pix2Text",
-          "domain": "latex",
-          "score": 69.87,
-          "stars": 2747
+          "name": "gumyr/build123d",
+          "domain": "cad",
+          "score": 75.0,
+          "stars": 1229
         },
         {
-          "name": "openai/openai-assistants-quickstart",
-          "domain": "framework",
-          "score": 69.4,
-          "stars": 1970
+          "name": "Suryakant-Bharti/Important-Java-Concepts",
+          "domain": "cad",
+          "score": 75.0,
+          "stars": 1202
         },
         {
-          "name": "goodfeli/dlbook_notation",
-          "domain": "latex",
-          "score": 66.96,
-          "stars": 1841
+          "name": "alessandro-zomparelli/tissue",
+          "domain": "cad",
+          "score": 75.0,
+          "stars": 1053
         },
         {
-          "name": "kingyiusuen/image-to-latex",
-          "domain": "latex",
-          "score": 66.03,
-          "stars": 2148
+          "name": "CadQuery/CQ-editor",
+          "domain": "cad",
+          "score": 75.0,
+          "stars": 1038
         },
         {
-          "name": "RICHQAQ/PasteMD",
-          "domain": "latex",
-          "score": 64.74,
-          "stars": 2584
+          "name": "CIDARLAB/cello",
+          "domain": "circuit",
+          "score": 75.0,
+          "stars": 850
         },
         {
-          "name": "jgravelle/AutoGroq",
-          "domain": "framework",
-          "score": 64.62,
-          "stars": 1482
+          "name": "rundiwu/DeepCAD",
+          "domain": "cad",
+          "score": 75.0,
+          "stars": 595
         },
         {
-          "name": "sanjib-sen/WebLaTex",
-          "domain": "latex",
-          "score": 63.46,
-          "stars": 1391
+          "name": "idea-fasoc/OpenFASOC",
+          "domain": "circuit",
+          "score": 75.0,
+          "stars": 304
         },
         {
-          "name": "crewAIInc/crewAI-tools",
-          "domain": "framework",
-          "score": 63.41,
-          "stars": 1341
+          "name": "CadQuery/cadquery",
+          "domain": "cad",
+          "score": 70.0,
+          "stars": 4335
         },
         {
-          "name": "Ruslan-B/FFmpeg.AutoGen",
-          "domain": "framework",
-          "score": 62.7,
-          "stars": 1540
+          "name": "tpaviot/pythonocc-core",
+          "domain": "cad",
+          "score": 70.0,
+          "stars": 1779
         },
         {
-          "name": "SamurAIGPT/Open-Custom-GPT",
-          "domain": "framework",
-          "score": 61.0,
-          "stars": 1645
+          "name": "generative-design/Code-Package-p5.js",
+          "domain": "cad",
+          "score": 70.0,
+          "stars": 983
         }
       ],
       "good": [
@@ -273,52 +275,52 @@
           "stars": 1126
         },
         {
-          "name": "Achuan-2/SlideSCI",
-          "domain": "latex",
-          "score": 54.47,
-          "stars": 2082
+          "name": "komar007/gh60",
+          "domain": "circuit",
+          "score": 55.0,
+          "stars": 852
         },
         {
-          "name": "Norsico/Video-Materials-AutoGEN-Workstation",
-          "domain": "framework",
-          "score": 53.7,
-          "stars": 1195
+          "name": "nodebox/nodebox",
+          "domain": "cad",
+          "score": 55.0,
+          "stars": 774
         },
         {
-          "name": "benbrastmckie/.config",
-          "domain": "latex",
-          "score": 53.67,
-          "stars": 427
+          "name": "bertjiazheng/Awesome-CAD",
+          "domain": "cad",
+          "score": 55.0,
+          "stars": 287
         },
         {
-          "name": "LinXueyuanStdio/LaTeX_OCR_PRO",
-          "domain": "latex",
-          "score": 53.58,
-          "stars": 1273
+          "name": "tudelft3d/Random3Dcity",
+          "domain": "cad",
+          "score": 55.0,
+          "stars": 231
         },
         {
-          "name": "tylerprogramming/ai",
-          "domain": "framework",
-          "score": 53.54,
-          "stars": 979
+          "name": "Esri/cityengine-sdk",
+          "domain": "cad",
+          "score": 55.0,
+          "stars": 215
         },
         {
-          "name": "blaisewang/img2latex-mathpix",
-          "domain": "latex",
-          "score": 51.91,
-          "stars": 1401
+          "name": "Heeks/heekscad",
+          "domain": "cad",
+          "score": 55.0,
+          "stars": 210
         },
         {
-          "name": "souvikinator/notion-to-md",
-          "domain": "latex",
-          "score": 51.86,
-          "stars": 1601
+          "name": "BunnySoCrazy/Awesome-Neural-CAD",
+          "domain": "cad",
+          "score": 55.0,
+          "stars": 164
         },
         {
-          "name": "PromtEngineer/Verbi",
-          "domain": "framework",
-          "score": 51.65,
-          "stars": 1085
+          "name": "zapta/simple_stepper_motor_analyzer",
+          "domain": "circuit",
+          "score": 55.0,
+          "stars": 155
         }
       ],
       "developing": [
@@ -398,31 +400,31 @@
         "developing": 111
       },
       "cad": {
-        "top_tier": 1,
-        "high_quality": 0,
-        "good": 2,
-        "developing": 29
+        "top_tier": 5,
+        "high_quality": 76,
+        "good": 171,
+        "developing": 283
       },
       "circuit": {
-        "top_tier": 0,
-        "high_quality": 0,
-        "good": 2,
-        "developing": 18
+        "top_tier": 2,
+        "high_quality": 25,
+        "good": 95,
+        "developing": 70
       }
     }
   },
   "licenses": {
     "overall": {
-      "MIT License": 131,
-      "No License": 63,
-      "Apache License 2.0": 44,
-      "GNU General Public License v3.0": 29,
-      "Other": 23,
-      "GNU Affero General Public License v3.0": 14,
-      "BSD 3-Clause \"New\" or \"Revised\" License": 5,
-      "GNU General Public License v2.0": 5,
-      "Mozilla Public License 2.0": 3,
-      "Creative Commons Zero v1.0 Universal": 2
+      "No License": 376,
+      "MIT License": 278,
+      "Apache License 2.0": 96,
+      "GNU General Public License v3.0": 88,
+      "Other": 69,
+      "GNU Lesser General Public License v3.0": 18,
+      "GNU Affero General Public License v3.0": 17,
+      "GNU General Public License v2.0": 17,
+      "BSD 3-Clause \"New\" or \"Revised\" License": 11,
+      "GNU Lesser General Public License v2.1": 7
     },
     "by_domain": {
       "framework": {
@@ -440,28 +442,28 @@
         "Apache License 2.0": 10
       },
       "cad": {
-        "MIT License": 12,
-        "No License": 7,
-        "Other": 4,
-        "GNU General Public License v3.0": 3,
-        "Apache License 2.0": 2
+        "No License": 252,
+        "MIT License": 125,
+        "GNU General Public License v3.0": 43,
+        "Apache License 2.0": 39,
+        "Other": 33
       },
       "circuit": {
-        "GNU General Public License v3.0": 5,
-        "MIT License": 4,
-        "BSD 3-Clause \"New\" or \"Revised\" License": 3,
-        "No License": 3,
-        "GNU General Public License v2.0": 2
+        "No License": 71,
+        "MIT License": 38,
+        "GNU General Public License v3.0": 24,
+        "Other": 18,
+        "Apache License 2.0": 16
       }
     }
   },
   "sizes": {
     "overall": {
       "mega": 53,
-      "large": 43,
-      "medium": 170,
-      "small": 62,
-      "micro": 0
+      "large": 55,
+      "medium": 283,
+      "small": 383,
+      "micro": 229
     },
     "by_domain": {
       "framework": {
@@ -480,17 +482,17 @@
       },
       "cad": {
         "mega": 32,
-        "large": 0,
-        "medium": 12,
-        "small": 19,
-        "micro": 0
+        "large": 10,
+        "medium": 94,
+        "small": 223,
+        "micro": 207
       },
       "circuit": {
         "mega": 53,
-        "large": 43,
-        "medium": 20,
-        "small": 10,
-        "micro": 0
+        "large": 26,
+        "medium": 41,
+        "small": 127,
+        "micro": 22
       }
     }
   }
