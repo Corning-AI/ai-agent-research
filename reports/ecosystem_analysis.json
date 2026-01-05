@@ -1,0 +1,635 @@
+{
+  "generated_at": "2026-01-05T16:24:44.271702",
+  "tech_stack_combinations": {
+    "cad": [
+      {
+        "language": "Python",
+        "count": 14
+      },
+      {
+        "language": "C#",
+        "count": 8
+      },
+      {
+        "language": "VBA",
+        "count": 1
+      },
+      {
+        "language": "TypeScript",
+        "count": 1
+      },
+      {
+        "language": "JavaScript",
+        "count": 1
+      },
+      {
+        "language": "Java",
+        "count": 1
+      },
+      {
+        "language": "Go",
+        "count": 1
+      },
+      {
+        "language": "Dockerfile",
+        "count": 1
+      },
+      {
+        "language": "C++",
+        "count": 1
+      }
+    ],
+    "circuit": [
+      {
+        "language": "Python",
+        "count": 9
+      },
+      {
+        "language": "C++",
+        "count": 2
+      },
+      {
+        "language": "C",
+        "count": 2
+      },
+      {
+        "language": "TypeScript",
+        "count": 1
+      },
+      {
+        "language": "Rust",
+        "count": 1
+      },
+      {
+        "language": "Jupyter Notebook",
+        "count": 1
+      },
+      {
+        "language": "Java",
+        "count": 1
+      },
+      {
+        "language": "Dockerfile",
+        "count": 1
+      },
+      {
+        "language": "C#",
+        "count": 1
+      }
+    ],
+    "framework": [
+      {
+        "language": "Python",
+        "count": 73
+      },
+      {
+        "language": "TypeScript",
+        "count": 27
+      },
+      {
+        "language": "Jupyter Notebook",
+        "count": 15
+      },
+      {
+        "language": "JavaScript",
+        "count": 6
+      },
+      {
+        "language": "Java",
+        "count": 3
+      },
+      {
+        "language": "MDX",
+        "count": 2
+      },
+      {
+        "language": "HTML",
+        "count": 2
+      },
+      {
+        "language": "Go",
+        "count": 2
+      },
+      {
+        "language": "TeX",
+        "count": 1
+      },
+      {
+        "language": "Swift",
+        "count": 1
+      },
+      {
+        "language": "Lua",
+        "count": 1
+      },
+      {
+        "language": "Kotlin",
+        "count": 1
+      },
+      {
+        "language": "C++",
+        "count": 1
+      },
+      {
+        "language": "C#",
+        "count": 1
+      }
+    ],
+    "latex": [
+      {
+        "language": "Python",
+        "count": 42
+      },
+      {
+        "language": "TypeScript",
+        "count": 18
+      },
+      {
+        "language": "TeX",
+        "count": 18
+      },
+      {
+        "language": "JavaScript",
+        "count": 10
+      },
+      {
+        "language": "Jupyter Notebook",
+        "count": 7
+      },
+      {
+        "language": "HTML",
+        "count": 6
+      },
+      {
+        "language": "Java",
+        "count": 4
+      },
+      {
+        "language": "Shell",
+        "count": 3
+      },
+      {
+        "language": "Emacs Lisp",
+        "count": 3
+      },
+      {
+        "language": "C++",
+        "count": 3
+      },
+      {
+        "language": "Swift",
+        "count": 2
+      },
+      {
+        "language": "Rust",
+        "count": 2
+      },
+      {
+        "language": "Ruby",
+        "count": 2
+      },
+      {
+        "language": "Lua",
+        "count": 2
+      },
+      {
+        "language": "Yacc",
+        "count": 1
+      },
+      {
+        "language": "VBA",
+        "count": 1
+      },
+      {
+        "language": "Typst",
+        "count": 1
+      },
+      {
+        "language": "Scheme",
+        "count": 1
+      },
+      {
+        "language": "RMarkdown",
+        "count": 1
+      },
+      {
+        "language": "R",
+        "count": 1
+      },
+      {
+        "language": "Kotlin",
+        "count": 1
+      },
+      {
+        "language": "Haskell",
+        "count": 1
+      },
+      {
+        "language": "Common Lisp",
+        "count": 1
+      },
+      {
+        "language": "C#",
+        "count": 1
+      }
+    ]
+  },
+  "temporal_trends": {
+    "creation_trends": {
+      "circuit": {
+        "2009": 1,
+        "2013": 1,
+        "2014": 1,
+        "2017": 3,
+        "2018": 1,
+        "2019": 2,
+        "2020": 3,
+        "2022": 2,
+        "2023": 4,
+        "2025": 2
+      },
+      "latex": {
+        "2009": 1,
+        "2012": 4,
+        "2013": 5,
+        "2014": 3,
+        "2015": 2,
+        "2016": 9,
+        "2017": 15,
+        "2018": 10,
+        "2019": 17,
+        "2020": 11,
+        "2021": 9,
+        "2022": 6,
+        "2023": 12,
+        "2024": 17,
+        "2025": 17
+      },
+      "cad": {
+        "2011": 1,
+        "2012": 1,
+        "2016": 3,
+        "2018": 4,
+        "2019": 1,
+        "2020": 5,
+        "2021": 7,
+        "2022": 1,
+        "2023": 1,
+        "2024": 1,
+        "2025": 7
+      },
+      "framework": {
+        "2013": 1,
+        "2016": 1,
+        "2017": 1,
+        "2018": 1,
+        "2019": 2,
+        "2020": 1,
+        "2022": 5,
+        "2023": 56,
+        "2024": 50,
+        "2025": 20
+      }
+    },
+    "update_trends": {
+      "cad": {
+        "last_month": 25,
+        "last_quarter": 4,
+        "last_year": 2,
+        "older": 1
+      },
+      "circuit": {
+        "last_month": 15,
+        "last_quarter": 5
+      },
+      "framework": {
+        "last_month": 131,
+        "last_quarter": 7
+      },
+      "latex": {
+        "last_month": 102,
+        "last_quarter": 27,
+        "last_year": 7,
+        "older": 2
+      }
+    }
+  },
+  "emerging_projects": [
+    {
+      "domain": "framework",
+      "name": "microsoft/markitdown",
+      "stars": 84817,
+      "forks": 4882,
+      "created_at": "2024-11-13",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "microsoft/ai-agents-for-beginners",
+      "stars": 47806,
+      "forks": 16490,
+      "created_at": "2024-11-28",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "latex",
+      "name": "PDFMathTranslate/PDFMathTranslate",
+      "stars": 30957,
+      "forks": 2775,
+      "created_at": "2024-09-06",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "huggingface/agents-course",
+      "stars": 24509,
+      "forks": 1718,
+      "created_at": "2025-01-16",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "NirDiamant/RAG_Techniques",
+      "stars": 23845,
+      "forks": 2753,
+      "created_at": "2024-07-13",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "zai-org/Open-AutoGLM",
+      "stars": 20245,
+      "forks": 3247,
+      "created_at": "2025-12-08",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "mastra-ai/mastra",
+      "stars": 19051,
+      "forks": 1370,
+      "created_at": "2024-08-06",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "NirDiamant/GenAI_Agents",
+      "stars": 18954,
+      "forks": 3147,
+      "created_at": "2024-09-09",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "bytedance/deer-flow",
+      "stars": 18896,
+      "forks": 2369,
+      "created_at": "2025-05-07",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "openai/openai-agents-python",
+      "stars": 18074,
+      "forks": 3023,
+      "created_at": "2025-03-11",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "humanlayer/12-factor-agents",
+      "stars": 17381,
+      "forks": 1330,
+      "created_at": "2025-03-30",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "elizaOS/eliza",
+      "stars": 17266,
+      "forks": 5404,
+      "created_at": "2024-07-09",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "raga-ai-hub/RagaAI-Catalyst",
+      "stars": 16096,
+      "forks": 3688,
+      "created_at": "2024-08-26",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "pydantic/pydantic-ai",
+      "stars": 14067,
+      "forks": 1508,
+      "created_at": "2024-06-21",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "MotiaDev/motia",
+      "stars": 13803,
+      "forks": 940,
+      "created_at": "2025-01-02",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "agent0ai/agent-zero",
+      "stars": 12945,
+      "forks": 2539,
+      "created_at": "2024-06-10",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "MODSetter/SurfSense",
+      "stars": 12112,
+      "forks": 1021,
+      "created_at": "2024-07-30",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "ruvnet/claude-flow",
+      "stars": 10991,
+      "forks": 1430,
+      "created_at": "2025-06-02",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "Tencent/WeKnora",
+      "stars": 10688,
+      "forks": 1146,
+      "created_at": "2025-07-22",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "microsoft/magentic-ui",
+      "stars": 9528,
+      "forks": 965,
+      "created_at": "2025-05-05",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "TEN-framework/ten-framework",
+      "stars": 9463,
+      "forks": 1113,
+      "created_at": "2024-06-19",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "alibaba/spring-ai-alibaba",
+      "stars": 7692,
+      "forks": 1656,
+      "created_at": "2024-09-09",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "awslabs/agent-squad",
+      "stars": 7164,
+      "forks": 656,
+      "created_at": "2024-07-23",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "InternLM/MindSearch",
+      "stars": 6719,
+      "forks": 675,
+      "created_at": "2024-07-28",
+      "last_updated": "2025-12-30",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "crestalnetwork/intentkit",
+      "stars": 6475,
+      "forks": 692,
+      "created_at": "2024-12-09",
+      "last_updated": "2025-12-30",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "microsoft/agent-framework",
+      "stars": 6250,
+      "forks": 964,
+      "created_at": "2025-04-28",
+      "last_updated": "2025-12-31",
+      "activity_score": 100.0
+    },
+    {
+      "domain": "framework",
+      "name": "ag2ai/ag2",
+      "stars": 3999,
+      "forks": 512,
+      "created_at": "2024-11-11",
+      "last_updated": "2025-12-31",
+      "activity_score": 89.99
+    },
+    {
+      "domain": "framework",
+      "name": "openai/openai-assistants-quickstart",
+      "stars": 1970,
+      "forks": 595,
+      "created_at": "2024-05-01",
+      "last_updated": "2025-12-28",
+      "activity_score": 69.4
+    },
+    {
+      "domain": "latex",
+      "name": "RICHQAQ/PasteMD",
+      "stars": 2584,
+      "forks": 178,
+      "created_at": "2025-10-25",
+      "last_updated": "2025-12-31",
+      "activity_score": 64.74
+    },
+    {
+      "domain": "framework",
+      "name": "jgravelle/AutoGroq",
+      "stars": 1482,
+      "forks": 464,
+      "created_at": "2024-03-29",
+      "last_updated": "2025-12-29",
+      "activity_score": 64.62
+    }
+  ],
+  "domain_maturity": {
+    "latex": {
+      "total_projects": 138,
+      "avg_stars": 1515.0,
+      "max_stars": 69901,
+      "avg_forks": 199.0,
+      "avg_activity_score": 37.1,
+      "avg_age_days": 2062.0,
+      "mature_projects": 20,
+      "new_projects_2024": 34,
+      "maturity_score": 46.9
+    },
+    "cad": {
+      "total_projects": 32,
+      "avg_stars": 697.0,
+      "max_stars": 17299,
+      "avg_forks": 88.0,
+      "avg_activity_score": 32.8,
+      "avg_age_days": 1875.0,
+      "mature_projects": 1,
+      "new_projects_2024": 8,
+      "maturity_score": 32.0
+    },
+    "circuit": {
+      "total_projects": 20,
+      "avg_stars": 194.0,
+      "max_stars": 782,
+      "avg_forks": 44.0,
+      "avg_activity_score": 32.3,
+      "avg_age_days": 2267.0,
+      "mature_projects": 0,
+      "new_projects_2024": 2,
+      "maturity_score": 15.5
+    },
+    "framework": {
+      "total_projects": 138,
+      "avg_stars": 10021.0,
+      "max_stars": 123102,
+      "avg_forks": 1632.0,
+      "avg_activity_score": 67.6,
+      "avg_age_days": 788.0,
+      "mature_projects": 75,
+      "new_projects_2024": 70,
+      "maturity_score": 72.0
+    }
+  }
+}
