@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent 智能推荐引擎</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div x-data="recommendationApp()" x-init="init()" class="container mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4">
+                🤖 AI Agent 智能推荐引擎
+            </h1>
+            <p class="text-lg text-gray-600">
+                基于您的需求，为您推荐最合适的工具和项目 | 整合 2025 最新数据
+            </p>
+            <div class="mt-4 flex justify-center gap-4">
+                <a href="overview.html" class="text-blue-600 hover:underline">
+                    <i class="fas fa-arrow-left"></i> 返回概览
+                </a>
+                <a href="index.html" class="text-blue-600 hover:underline">
+                    LaTeX 专题
+                </a>
+            </div>
+        </div>
+
+        <!-- Requirements Form -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-sliders-h text-blue-500"></i> 填写您的需求
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 领域选择 -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-layer-group text-purple-500"></i> 领域
+                    </label>
+                    <select x-model="requirements.domain"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="latex">LaTeX 学术写作</option>
+                        <option value="cad">CAD 设计</option>
+                        <option value="circuit">电路设计</option>
+                        <option value="framework">AI Agent 框架</option>
+                    </select>
+                </div>
+
+                <!-- 经验水平 -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-user-graduate text-green-500"></i> 经验水平
+                    </label>
+                    <select x-model="requirements.experience"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="beginner">初学者</option>
+                        <option value="intermediate">中级用户</option>
+                        <option value="advanced">高级用户</option>
+                    </select>
+                </div>
+
+                <!-- 预算 -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-dollar-sign text-yellow-500"></i> 预算
+                    </label>
+                    <select x-model="requirements.budget"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="free">免费 / 开源</option>
+                        <option value="low">低 (< $100/月)</option>
+                        <option value="medium">中 ($100-500/月)</option>
+                        <option value="high">高 (> $500/月 或企业级)</option>
+                    </select>
+                </div>
+
+                <!-- 优先级 -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-star text-red-500"></i> 优先考虑
+                    </label>
+                    <select x-model="requirements.priority"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="ease_of_use">易用性</option>
+                        <option value="performance">性能</option>
+                        <option value="features">功能丰富度</option>
+                        <option value="community">社区活跃度</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 功能需求 -->
+            <div class="mt-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-check-square text-indigo-500"></i> 需要的功能 (多选)
+                </label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <template x-for="feature in availableFeatures" :key="feature.value">
+                        <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                            <input type="checkbox"
+                                   :value="feature.value"
+                                   x-model="requirements.features"
+                                   class="rounded text-blue-600 focus:ring-blue-500">
+                            <span class="text-sm" x-text="feature.label"></span>
+                        </label>
+                    </template>
+                </div>
+            </div>
+
+            <!-- 编程语言偏好 (可选) -->
+            <div class="mt-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-code text-pink-500"></i> 编程语言偏好 (可选)
+                </label>
+                <div class="flex flex-wrap gap-2">
+                    <template x-for="lang in popularLanguages" :key="lang">
+                        <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 px-3 py-1 rounded-full border">
+                            <input type="checkbox"
+                                   :value="lang"
+                                   x-model="requirements.language_preference"
+                                   class="rounded text-blue-600 focus:ring-blue-500">
+                            <span class="text-sm" x-text="lang"></span>
+                        </label>
+                    </template>
+                </div>
+            </div>
+
+            <!-- 提交按钮 -->
+            <div class="mt-8 text-center">
+                <button @click="getRecommendations()"
+                        :disabled="loading"
+                        class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105">
+                    <span x-show="!loading">
+                        <i class="fas fa-magic"></i> 获取智能推荐
+                    </span>
+                    <span x-show="loading">
+                        <i class="fas fa-spinner fa-spin"></i> 分析中...
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div x-show="loading" class="text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600"></div>
+            <p class="mt-4 text-gray-600 text-lg">正在分析您的需求并匹配最佳工具...</p>
+        </div>
+
+        <!-- Results -->
+        <div x-show="!loading && results.recommendations && results.recommendations.length > 0"
+             class="space-y-6">
+
+            <!-- Summary -->
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border-l-4 border-green-500">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    找到 <span x-text="results.recommendations.length"></span> 个推荐
+                </h3>
+                <p class="text-gray-700">
+                    基于您的需求：
+                    <strong x-text="getDomainLabel(results.requirements.domain)"></strong> 领域，
+                    <strong x-text="getExperienceLabel(results.requirements.experience)"></strong>，
+                    预算 <strong x-text="getBudgetLabel(results.requirements.budget)"></strong>
+                </p>
+            </div>
+
+            <!-- Top Recommendations -->
+            <div class="grid grid-cols-1 gap-6">
+                <template x-for="(rec, index) in results.recommendations" :key="index">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-l-4"
+                         :class="rec.type === 'commercial' ? 'border-purple-500' : 'border-blue-500'">
+
+                        <div class="p-6">
+                            <!-- Header -->
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-3xl font-bold text-gray-400" x-text="`#${index + 1}`"></span>
+                                        <h3 class="text-2xl font-bold text-gray-800"
+                                            x-text="rec.name || rec.full_name"></h3>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold"
+                                              :class="rec.type === 'commercial' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'"
+                                              x-text="rec.type === 'commercial' ? '商业工具' : '开源项目'">
+                                        </span>
+                                    </div>
+
+                                    <!-- Score Badge -->
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <div class="flex items-center">
+                                            <span class="text-sm text-gray-600 mr-2">相关度:</span>
+                                            <div class="relative w-20 h-20">
+                                                <svg class="transform -rotate-90 w-20 h-20">
+                                                    <circle cx="40" cy="40" r="32" stroke="#e5e7eb" stroke-width="8" fill="none" />
+                                                    <circle cx="40" cy="40" r="32"
+                                                            :stroke="getScoreColor(rec.relevance_score)"
+                                                            stroke-width="8" fill="none"
+                                                            :stroke-dasharray="`${(rec.relevance_score / 100) * 201} 201`"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <div class="absolute inset-0 flex items-center justify-center">
+                                                    <span class="text-lg font-bold" x-text="rec.relevance_score"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Stars/Price -->
+                                        <div x-show="rec.type === 'open_source'" class="flex items-center text-yellow-500">
+                                            <i class="fas fa-star mr-1"></i>
+                                            <span class="font-semibold" x-text="rec.stars?.toLocaleString()"></span>
+                                        </div>
+                                        <div x-show="rec.type === 'commercial'" class="flex items-center text-green-600">
+                                            <i class="fas fa-dollar-sign mr-1"></i>
+                                            <span class="text-sm font-semibold" x-text="rec.price"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-gray-700 mb-4" x-text="rec.description"></p>
+
+                            <!-- Reasoning -->
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                                <p class="text-sm font-semibold text-gray-700">
+                                    <i class="fas fa-lightbulb text-yellow-500"></i> 推荐理由
+                                </p>
+                                <p class="text-sm text-gray-600 mt-1" x-text="rec.reasoning"></p>
+                            </div>
+
+                            <!-- Features (if available) -->
+                            <div x-show="rec.features && rec.features.length > 0" class="mb-4">
+                                <p class="text-sm font-semibold text-gray-700 mb-2">
+                                    <i class="fas fa-puzzle-piece text-indigo-500"></i> 特性
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <template x-for="feature in rec.features" :key="feature">
+                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs"
+                                              x-text="feature"></span>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <!-- Metadata -->
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                                <div x-show="rec.main_language">
+                                    <i class="fas fa-code text-pink-500"></i>
+                                    <span x-text="rec.main_language"></span>
+                                </div>
+                                <div x-show="rec.license">
+                                    <i class="fas fa-certificate text-blue-500"></i>
+                                    <span x-text="rec.license"></span>
+                                </div>
+                                <div x-show="rec.last_updated">
+                                    <i class="fas fa-calendar text-green-500"></i>
+                                    <span x-text="'更新: ' + rec.last_updated"></span>
+                                </div>
+                                <div x-show="rec.activity_score">
+                                    <i class="fas fa-chart-line text-orange-500"></i>
+                                    <span x-text="'活跃度: ' + rec.activity_score"></span>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="flex gap-3">
+                                <a :href="rec.url"
+                                   target="_blank"
+                                   class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg text-center font-semibold hover:bg-blue-700 transition">
+                                    <i class="fas fa-external-link-alt"></i> 访问项目
+                                </a>
+                                <button @click="copyToClipboard(rec.url)"
+                                        class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- No Results -->
+        <div x-show="!loading && results.recommendations && results.recommendations.length === 0"
+             class="text-center py-12 bg-white rounded-xl shadow-lg">
+            <i class="fas fa-search text-gray-400 text-6xl mb-4"></i>
+            <p class="text-xl text-gray-600">未找到符合条件的推荐</p>
+            <p class="text-gray-500 mt-2">请尝试调整您的筛选条件</p>
+        </div>
+    </div>
+
+    <script>
+        function recommendationApp() {
+            return {
+                loading: false,
+                requirements: {
+                    domain: 'latex',
+                    experience: 'beginner',
+                    budget: 'free',
+                    features: [],
+                    priority: 'ease_of_use',
+                    language_preference: []
+                },
+                results: {},
+
+                availableFeatures: [
+                    { value: 'ai', label: 'AI 辅助' },
+                    { value: 'collaboration', label: '协作' },
+                    { value: 'templates', label: '模板' },
+                    { value: 'automation', label: '自动化' },
+                    { value: 'ocr', label: 'OCR' },
+                    { value: 'grammar', label: '语法检查' },
+                    { value: 'simulation', label: '仿真' },
+                    { value: 'verification', label: '验证' },
+                ],
+
+                popularLanguages: ['Python', 'JavaScript', 'TypeScript', 'C++', 'Java', 'Rust', 'Go'],
+
+                init() {
+                    // Load from URL params if available
+                    const params = new URLSearchParams(window.location.search);
+                    if (params.has('domain')) {
+                        this.requirements.domain = params.get('domain');
+                    }
+                },
+
+                async getRecommendations() {
+                    this.loading = true;
+                    this.results = {};
+
+                    try {
+                        // 使用本地推荐引擎（模拟API调用）
+                        // 在生产环境中，这里应该调用实际的 API
+                        await this.simulateRecommendation();
+                    } catch (error) {
+                        console.error('Error getting recommendations:', error);
+                        alert('获取推荐失败，请稍后重试');
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async simulateRecommendation() {
+                    // 模拟API延迟
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+
+                    // 这里应该实际调用 API: fetch('http://localhost:5000/api/recommend', ...)
+                    // 由于需要后端运行，这里使用模拟数据
+
+                    // 加载项目数据
+                    try {
+                        const response = await fetch(`../data/${this.requirements.domain}/projects.json`);
+                        const projects = await response.json();
+
+                        // 简单的本地推荐逻辑
+                        const scored = projects.map(p => ({
+                            ...p,
+                            type: 'open_source',
+                            relevance_score: this.calculateSimpleScore(p),
+                            reasoning: this.generateSimpleReasoning(p)
+                        }));
+
+                        scored.sort((a, b) => b.relevance_score - a.relevance_score);
+
+                        this.results = {
+                            requirements: this.requirements,
+                            recommendations: scored.slice(0, 10)
+                        };
+                    } catch (error) {
+                        console.error('Error loading projects:', error);
+                        this.results = {
+                            requirements: this.requirements,
+                            recommendations: []
+                        };
+                    }
+                },
+
+                calculateSimpleScore(project) {
+                    let score = 0;
+                    score += Math.min(project.activity_score || 0, 50);
+                    score += Math.min((project.stars || 0) / 1000, 30);
+
+                    const desc = (project.description || '').toLowerCase();
+                    this.requirements.features.forEach(feature => {
+                        if (desc.includes(feature.toLowerCase())) {
+                            score += 10;
+                        }
+                    });
+
+                    return Math.min(Math.round(score), 100);
+                },
+
+                generateSimpleReasoning(project) {
+                    const reasons = [];
+                    if (project.stars > 10000) reasons.push(`高人气 (${project.stars.toLocaleString()} stars)`);
+                    if (project.activity_score > 80) reasons.push('近期活跃');
+                    if (project.license && project.license.toLowerCase().includes('mit')) reasons.push('MIT许可证');
+                    return reasons.join(' | ') || '符合基本需求';
+                },
+
+                getScoreColor(score) {
+                    if (score >= 80) return '#10b981'; // green
+                    if (score >= 60) return '#3b82f6'; // blue
+                    if (score >= 40) return '#f59e0b'; // yellow
+                    return '#ef4444'; // red
+                },
+
+                getDomainLabel(domain) {
+                    const labels = {
+                        'latex': 'LaTeX 学术写作',
+                        'cad': 'CAD 设计',
+                        'circuit': '电路设计',
+                        'framework': 'AI Agent 框架'
+                    };
+                    return labels[domain] || domain;
+                },
+
+                getExperienceLabel(exp) {
+                    const labels = {
+                        'beginner': '初学者',
+                        'intermediate': '中级用户',
+                        'advanced': '高级用户'
+                    };
+                    return labels[exp] || exp;
+                },
+
+                getBudgetLabel(budget) {
+                    const labels = {
+                        'free': '免费/开源',
+                        'low': '低预算',
+                        'medium': '中等预算',
+                        'high': '高预算/企业级'
+                    };
+                    return labels[budget] || budget;
+                },
+
+                copyToClipboard(text) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert('链接已复制到剪贴板！');
+                    });
+                }
+            };
+        }
+    </script>
+</body>
+</html>

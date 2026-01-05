@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业领域 AI Agent 调研平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .project-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold">🔬 专业领域 AI Agent 调研平台</h1>
+                    <p class="text-blue-100 text-sm mt-1">LaTeX · CAD · Circuit AI Agent 技术调研</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg transition">首页</a>
+                    <a href="#latex" class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg transition">LaTeX</a>
+                    <a href="#about" class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg transition">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div x-data="appData()" x-init="loadProjects()" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 加载状态 -->
+        <div x-show="loading" x-cloak class="text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            <p class="mt-4 text-gray-600">正在加载项目数据...</p>
+        </div>
+
+        <!-- 主要内容 -->
+        <div x-show="!loading" x-cloak>
+            <!-- 统计卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">总项目数</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" x-text="stats.totalProjects"></p>
+                        </div>
+                        <div class="bg-blue-100 rounded-full p-3">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-green-600 text-sm mt-4 flex items-center">
+                        <span class="mr-1">↑</span> 持续更新中
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">总 Stars</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" x-text="formatNumber(stats.totalStars)"></p>
+                        </div>
+                        <div class="bg-green-100 rounded-full p-3">
+                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-green-600 text-sm mt-4">高质量项目集合</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-purple-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">平均 Stars</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" x-text="formatNumber(stats.avgStars)"></p>
+                        </div>
+                        <div class="bg-purple-100 rounded-full p-3">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-purple-600 text-sm mt-4">平均活跃度高</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-orange-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm font-medium">活跃项目</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-2" x-text="stats.activeProjects"></p>
+                        </div>
+                        <div class="bg-orange-100 rounded-full p-3">
+                            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-orange-600 text-sm mt-4">近期有更新</p>
+                </div>
+            </div>
+
+            <!-- 主要内容区域 -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 左侧：项目列表 -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-bold text-gray-900">🔥 热门 LaTeX AI 项目</h2>
+                            <select @change="sortProjects($event.target.value)" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="stars">按 Stars 排序</option>
+                                <option value="updated">按更新时间</option>
+                                <option value="activity">按活跃度</option>
+                            </select>
+                        </div>
+
+                        <!-- 项目卡片列表 -->
+                        <div class="space-y-4">
+                            <template x-for="(project, index) in displayProjects" :key="project.id">
+                                <div class="project-card bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-5 border border-blue-100">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex-1">
+                                            <div class="flex items-center space-x-2 mb-2">
+                                                <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded-full">LaTeX</span>
+                                                <span x-show="project.main_language" class="px-2 py-1 bg-green-500 text-white text-xs rounded-full" x-text="project.main_language"></span>
+                                                <span x-show="project.stars > 10000" class="px-2 py-1 bg-yellow-500 text-white text-xs rounded-full">⭐ 热门</span>
+                                            </div>
+                                            <h3 class="text-lg font-bold text-gray-900 mb-2">
+                                                <a :href="project.url" target="_blank" class="hover:text-blue-600 transition" x-text="project.full_name"></a>
+                                            </h3>
+                                            <p class="text-gray-600 text-sm mb-3" x-text="truncateText(project.description, 120)"></p>
+                                            <div class="flex items-center space-x-4 text-sm text-gray-500">
+                                                <span class="flex items-center">
+                                                    <svg class="w-4 h-4 mr-1 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                                    </svg>
+                                                    <span x-text="formatNumber(project.stars)"></span>
+                                                </span>
+                                                <span x-text="project.main_language || 'N/A'"></span>
+                                                <span x-text="'更新: ' + project.last_updated"></span>
+                                                <span :class="getActivityClass(project.activity_score)" x-text="'活跃度: ' + project.activity_score"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <!-- 加载更多按钮 -->
+                            <div x-show="displayCount < sortedProjects.length" class="text-center pt-4">
+                                <button @click="loadMore()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition font-medium">
+                                    加载更多项目... (<span x-text="sortedProjects.length - displayCount"></span> 个)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：图表和快速统计 -->
+                <div class="space-y-6">
+                    <!-- 领域分布 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">📊 领域分布</h3>
+                        <canvas id="domainChart"></canvas>
+                    </div>
+
+                    <!-- 技术栈统计 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">💻 主要语言</h3>
+                        <div class="space-y-3">
+                            <template x-for="lang in topLanguages" :key="lang.name">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm text-gray-600" x-text="lang.name"></span>
+                                        <span class="text-sm font-medium" x-text="lang.percentage + '%'"></span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div :class="lang.color" class="h-2 rounded-full" :style="'width: ' + lang.percentage + '%'"></div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- 快速链接 -->
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-md p-6 text-white">
+                        <h3 class="text-lg font-bold mb-4">🚀 快速开始</h3>
+                        <div class="space-y-3">
+                            <a href="https://github.com/settings/tokens" target="_blank" class="block bg-white/20 hover:bg-white/30 rounded-lg p-3 transition">
+                                <div class="font-medium">获取 GitHub Token</div>
+                                <div class="text-sm text-blue-100">提升 API 限额至 5000/小时</div>
+                            </a>
+                            <a href="#" class="block bg-white/20 hover:bg-white/30 rounded-lg p-3 transition">
+                                <div class="font-medium">AI 智能推荐</div>
+                                <div class="text-sm text-blue-100">基于需求推荐最佳技术栈</div>
+                            </a>
+                            <a href="https://github.com/corning-AI" target="_blank" class="block bg-white/20 hover:bg-white/30 rounded-lg p-3 transition">
+                                <div class="font-medium">GitHub 主页</div>
+                                <div class="text-sm text-blue-100">@corning-AI</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">专业领域 AI Agent 调研平台 © 2025</p>
+            <p class="text-gray-500 text-sm mt-2">采用混合 LLM 策略（Claude + OpenAI + 本地）· 成本节省 68%</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://github.com/corning-AI" class="text-gray-400 hover:text-white transition">GitHub</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">文档</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">API 指南</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function appData() {
+            return {
+                loading: true,
+                projects: [],
+                sortedProjects: [],
+                displayCount: 10,
+                stats: {
+                    totalProjects: 0,
+                    totalStars: 0,
+                    avgStars: 0,
+                    activeProjects: 0
+                },
+                topLanguages: [],
+                domainChart: null,
+
+                async loadProjects() {
+                    try {
+                        const response = await fetch('../data/latex/projects.json');
+                        this.projects = await response.json();
+                        this.sortedProjects = [...this.projects];
+                        this.calculateStats();
+                        this.calculateLanguages();
+                        this.renderDomainChart();
+                        this.loading = false;
+                    } catch (error) {
+                        console.error('加载数据失败:', error);
+                        this.loading = false;
+                    }
+                },
+
+                calculateStats() {
+                    this.stats.totalProjects = this.projects.length;
+                    this.stats.totalStars = this.projects.reduce((sum, p) => sum + p.stars, 0);
+                    this.stats.avgStars = Math.round(this.stats.totalStars / this.stats.totalProjects);
+
+                    // 计算活跃项目（最近30天有更新）
+                    const thirtyDaysAgo = new Date();
+                    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                    this.stats.activeProjects = this.projects.filter(p => {
+                        return new Date(p.last_updated) > thirtyDaysAgo;
+                    }).length;
+                },
+
+                calculateLanguages() {
+                    const langCount = {};
+                    this.projects.forEach(p => {
+                        const lang = p.main_language || 'Unknown';
+                        langCount[lang] = (langCount[lang] || 0) + 1;
+                    });
+
+                    const colors = {
+                        'Python': 'bg-blue-600',
+                        'TypeScript': 'bg-green-600',
+                        'JavaScript': 'bg-yellow-600',
+                        'Java': 'bg-red-600',
+                        'C#': 'bg-purple-600',
+                        'Shell': 'bg-gray-600',
+                        'TeX': 'bg-pink-600',
+                        'Jupyter Notebook': 'bg-orange-600'
+                    };
+
+                    const total = this.projects.length;
+                    this.topLanguages = Object.entries(langCount)
+                        .map(([name, count]) => ({
+                            name,
+                            count,
+                            percentage: Math.round((count / total) * 100),
+                            color: colors[name] || 'bg-gray-600'
+                        }))
+                        .sort((a, b) => b.count - a.count)
+                        .slice(0, 6);
+                },
+
+                renderDomainChart() {
+                    const ctx = document.getElementById('domainChart').getContext('2d');
+                    this.domainChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['LaTeX AI', 'LaTeX OCR', 'LaTeX 工具', 'LaTeX 编辑器'],
+                            datasets: [{
+                                data: [
+                                    this.projects.filter(p => p.description && p.description.toLowerCase().includes('ai')).length,
+                                    this.projects.filter(p => p.description && p.description.toLowerCase().includes('ocr')).length,
+                                    this.projects.filter(p => p.description && (p.description.toLowerCase().includes('convert') || p.description.toLowerCase().includes('tool'))).length,
+                                    this.projects.filter(p => p.description && (p.description.toLowerCase().includes('editor') || p.description.toLowerCase().includes('vscode'))).length
+                                ],
+                                backgroundColor: [
+                                    'rgba(59, 130, 246, 0.8)',
+                                    'rgba(16, 185, 129, 0.8)',
+                                    'rgba(245, 158, 11, 0.8)',
+                                    'rgba(139, 92, 246, 0.8)'
+                                ],
+                                borderWidth: 2,
+                                borderColor: '#fff'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return context.label + ': ' + context.parsed + ' 项目';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                },
+
+                sortProjects(sortBy) {
+                    if (sortBy === 'stars') {
+                        this.sortedProjects = [...this.projects].sort((a, b) => b.stars - a.stars);
+                    } else if (sortBy === 'updated') {
+                        this.sortedProjects = [...this.projects].sort((a, b) =>
+                            new Date(b.last_updated) - new Date(a.last_updated)
+                        );
+                    } else if (sortBy === 'activity') {
+                        this.sortedProjects = [...this.projects].sort((a, b) =>
+                            b.activity_score - a.activity_score
+                        );
+                    }
+                    this.displayCount = 10;
+                },
+
+                loadMore() {
+                    this.displayCount += 10;
+                },
+
+                get displayProjects() {
+                    return this.sortedProjects.slice(0, this.displayCount);
+                },
+
+                formatNumber(num) {
+                    if (num >= 1000) {
+                        return (num / 1000).toFixed(1) + 'K';
+                    }
+                    return num;
+                },
+
+                truncateText(text, maxLength) {
+                    if (!text) return '无描述';
+                    if (text.length <= maxLength) return text;
+                    return text.substring(0, maxLength) + '...';
+                },
+
+                getActivityClass(score) {
+                    if (score >= 80) return 'px-2 py-1 bg-green-100 text-green-700 text-xs rounded';
+                    if (score >= 60) return 'px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded';
+                    return 'px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
