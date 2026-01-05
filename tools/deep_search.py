@@ -293,15 +293,18 @@ class DeepSearchEngine:
                 # 计算质量分数
                 quality_score = self.calculate_quality_score(repo)
 
+                # 注意：数据库中没有 owner 列，owner 信息包含在 full_name 中
+                open_issues = repo.get("openIssuesCount", 0)
+
                 cursor.execute("""
                 INSERT INTO projects (
-                    domain, name, full_name, owner, url, description,
-                    stars, forks, main_language, license, topics,
+                    domain, name, full_name, url, description,
+                    stars, forks, open_issues, main_language, license, topics,
                     created_at, last_updated, activity_score
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
-                    domain, name, full_name, owner_login, url, description,
-                    stars, forks, language, license_name, "[]",
+                    domain, name, full_name, url, description,
+                    stars, forks, open_issues, language, license_name, "[]",
                     created_at, updated_at, quality_score
                 ))
 
