@@ -5,11 +5,12 @@
 ## 项目概述
 
 这是一个自动化的技术调研平台，旨在：
-- 🔍 自动搜索和分析 GitHub 上的相关项目（已收集 **328+ 项目**）
+- 🔍 自动搜索和分析 GitHub 上的相关项目（已收集 **1,003 项目**）
 - 📊 生成交互式可视化报告（多领域对比分析）
-- 🚀 **并行搜索**：10个并行 agent，4秒完成全领域搜索
-- 🤖 AI 智能推荐最佳技术栈
-- 💰 混合 LLM 策略（Claude + OpenAI + 本地模型）降低成本
+- 🚀 **深度搜索**：71个关键词查询，10个并发线程
+- 🤖 AI 智能推荐引擎（整合 1,003 项目数据）
+- 📈 完整分析报告（质量评分、生态分析、趋势预测）
+- 🌐 交互式 Web 界面（推荐引擎、数据可视化）
 
 ## 快速开始
 
@@ -47,85 +48,125 @@ python3 parallel_search.py
 ```
 
 这将：
-- 🚀 使用 10 个并行线程同时搜索 4 个领域
-- 🔍 搜索 328+ 个 AI Agent 相关项目
-  - LaTeX: 138 项目（平均 1.5K stars）
-  - Framework: 138 项目（平均 10K stars）
-  - CAD: 32 项目（平均 697 stars）
-  - Circuit: 20 项目（平均 194 stars）
+- 🚀 使用 10 个并发线程深度搜索
+- 🔍 搜索 1,003 个 AI Agent 相关项目
+  - **CAD**: 535 项目（平均 128 stars）⭐ 16.7x 增长
+  - **Circuit**: 192 项目（平均 98 stars）⭐ 9.6x 增长
+  - **Framework**: 138 项目（平均 10K stars）
+  - **LaTeX**: 138 项目（平均 1.5K stars）
 - 💾 自动创建 SQLite 数据库
 - 📄 导出各领域 JSON 数据文件
-- ⚡ 仅需 **4 秒**完成全部搜索
+- 📊 生成质量评分和生态分析
 
 ## 项目结构
 
 ```
 ai_agent/
-├── README.md                    # 本文件
+├── README.md                    # 项目说明
+├── start_server.py             # Web 服务器（推荐使用）⭐
+├── cli.py                       # 命令行工具 ⭐
 ├── tools/                       # 调研工具
-│   ├── github_searcher.py      # GitHub REST API 搜索
-│   ├── gh_batch_search.py      # GitHub CLI 批量搜索
+│   ├── deep_search.py          # 深度搜索引擎（71个查询）⭐
 │   ├── parallel_search.py      # 并行多领域搜索
-│   ├── recommendation_engine.py # AI 智能推荐引擎 ⭐ NEW
-│   ├── project_analyzer.py     # 项目深度分析（开发中）
-│   └── llm_router.py           # 智能 LLM 路由（计划中）
-├── api/                         # API 服务 ⭐ NEW
-│   ├── recommendation_api.py   # 推荐引擎 RESTful API
-│   └── requirements.txt        # API 依赖
+│   ├── project_analyzer.py     # 项目质量分析 ⭐
+│   ├── ecosystem_analyzer.py   # 生态系统分析 ⭐
+│   ├── recommendation_engine.py # AI 智能推荐引擎
+│   └── gh_batch_search.py      # GitHub CLI 批量搜索
 ├── data/                        # 数据存储
-│   ├── projects.db             # SQLite 数据库（328+ 项目）
-│   ├── latex/                  # LaTeX 领域数据（138 项目）
-│   │   └── projects.json
-│   ├── cad/                    # CAD 领域数据（32 项目）
-│   │   └── projects.json
-│   ├── circuit/                # Circuit 领域数据（20 项目）
-│   │   └── projects.json
-│   └── framework/              # Framework 领域数据（138 项目）
-│       └── projects.json
-├── reports/                     # 调研报告 ⭐ NEW
-│   ├── 2025_latest/            # 2025 最新调研
-│   │   └── Executive_Summary.md # 执行摘要（WebSearch 数据）
-│   └── WebSearch_Research_Report.md # 完整调研报告
+│   ├── projects.db             # SQLite 数据库（1,003 项目）⭐
+│   ├── cad/                    # CAD 领域（535 项目）⭐
+│   ├── circuit/                # Circuit 领域（192 项目）⭐
+│   ├── framework/              # Framework 领域（138 项目）
+│   └── latex/                  # LaTeX 领域（138 项目）
+├── reports/                     # 分析报告
+│   ├── Comprehensive_Deep_Research_Report.md  # 综合报告 v1.1 ⭐
+│   ├── project_analysis.json   # 项目分析数据 ⭐
+│   ├── ecosystem_analysis.json # 生态分析数据 ⭐
+│   └── WebSearch_Research_Report.md  # 2025调研报告
 ├── web/                         # 交互式网页
-│   ├── overview.html           # 多领域概览仪表板
-│   ├── recommendation.html     # AI 智能推荐页面 ⭐ NEW
-│   ├── index.html              # LaTeX 专题页
-│   └── comparison.html         # 项目对比（计划中）
-└── 专业领域AI Agent产品计划.md   # 产品规划
+│   ├── recommendation.html     # AI 智能推荐引擎 ⭐
+│   ├── overview.html           # 多领域数据概览
+│   └── index.html              # LaTeX 专题页
+└── api/                         # API 服务（可选）
+    └── recommendation_api.py   # RESTful API
 
 ```
 
 ## 功能特性
 
 ### ✅ 已完成
-- [x] 项目目录结构
-- [x] GitHub 自动搜索工具（REST API + CLI）
-- [x] **并行搜索引擎**（10个并发线程）⭐
-- [x] SQLite 数据库设计（328+ 项目）
-- [x] **多领域数据收集**：LaTeX、CAD、Circuit、Framework ⭐
-- [x] **交互式网页界面**（多领域概览 + LaTeX 专题页）⭐
-- [x] 实时数据可视化（Chart.js）
-- [x] 领域分布分析和语言统计
-- [x] **WebSearch 补充调研**（20个查询，2025最新数据）⭐
-- [x] **AI 智能推荐引擎**（需求匹配 + 相关度评分）⭐ NEW
+- [x] **深度搜索引擎**（71个关键词查询，10并发线程）⭐
+- [x] **数据大幅扩展**（328 → 1,003 项目，3.1x 增长）⭐
+  - CAD: 32 → 535 项目（16.7x）
+  - Circuit: 20 → 192 项目（9.6x）
+- [x] **项目质量分析**（活跃度、许可证、规模分布）⭐
+- [x] **生态系统分析**（成熟度评分、新兴项目识别）⭐
+- [x] **综合调研报告** v1.1（15,000+ 字深度分析）⭐
+- [x] **AI 智能推荐引擎**（整合 1,003 项目数据）⭐
   - 基于用户需求自动推荐最佳工具
-  - 整合 GitHub 328+ 项目 + 2025 商业工具数据
   - 支持多维度筛选（领域、经验、预算、功能）
   - 智能评分算法（活跃度、功能匹配、社区支持）
-  - RESTful API 接口
+  - 交互式 Web 界面
+- [x] **本地 Web 服务器**（解决 CORS 问题）⭐
+- [x] **CLI 命令行工具**（推荐、统计、列表）⭐
+- [x] 交互式网页界面（推荐引擎、数据概览、LaTeX 专题）
+- [x] 实时数据可视化（Chart.js）
+- [x] WebSearch 补充调研（2025最新数据）
 
-### 🚧 进行中
-- [ ] 项目深度分析工具
-- [ ] 项目对比功能
-
-### 📅 计划中
-- [ ] 自动化更新脚本
+### 📅 未来计划
+- [ ] 自动化定期更新脚本
 - [ ] GitHub Pages 部署
 - [ ] 增强推荐算法（机器学习模型）
+- [ ] 项目对比功能
 
 ## 使用示例
 
-### 并行搜索多个领域（推荐）
+### 启动 Web 服务器（推荐）⭐
+
+使用本地 Web 服务器访问所有交互式功能：
+
+```bash
+# 启动服务器
+python3 start_server.py
+```
+
+服务器将自动：
+- 🚀 启动在 http://localhost:8888
+- 🌐 自动打开推荐引擎页面
+- ✅ 解决 CORS 跨域问题
+- 📊 提供所有 Web 界面访问
+
+访问地址：
+- **推荐引擎**: http://localhost:8888/web/recommendation.html
+- **数据概览**: http://localhost:8888/web/overview.html
+- **LaTeX 专题**: http://localhost:8888/web/index.html
+
+### 使用 CLI 工具 ⭐
+
+```bash
+# 获取智能推荐
+python3 cli.py recommend -d cad -e beginner -b free
+
+# 查看统计数据
+python3 cli.py stats --domain cad
+
+# 列出项目
+python3 cli.py list -d circuit --limit 20 --sort stars
+
+# 查看帮助
+python3 cli.py --help
+```
+
+### 深度搜索（扩展数据）
+
+```bash
+cd tools
+python3 deep_search.py
+```
+
+执行 71 个关键词查询，大幅扩展数据集。
+
+### 并行搜索多个领域
 
 ```bash
 cd tools
@@ -192,7 +233,7 @@ open web/index.html
 4. 勾选需要的功能
 5. 点击"获取智能推荐"
 
-推荐引擎将基于您的需求，从 328+ GitHub 项目和 2025 最新商业工具中，智能匹配并推荐最适合的工具。
+推荐引擎将基于您的需求，从 **1,003 个 GitHub 项目**和 2025 最新商业工具中，智能匹配并推荐最适合的工具。
 
 #### 方式 2: Python API
 
@@ -272,14 +313,23 @@ MIT License
 
 ## 🎉 项目里程碑
 
-- ✅ **Day 1 完成**: 并行搜索引擎、多领域数据收集、交互式网页
-- 📊 **数据规模**: 328+ 项目，覆盖 4 个专业领域
-- ⚡ **性能**: 10个并行agent，4秒完成全域搜索
-- 🌟 **顶级项目**: langchain (123K⭐), markitdown (85K⭐), MetaGPT (62K⭐)
+### v1.1 - 数据大扩展 (2026-01-05)
+- 🚀 **深度搜索**: 71个关键词查询，10并发线程
+- 📊 **数据规模**: 1,003 项目（3.1x 增长）
+  - CAD: 535 项目（16.7x）
+  - Circuit: 192 项目（9.6x）
+- 📈 **分析报告**: 15,000+ 字综合报告 v1.1
+- 🌐 **Web 服务器**: 解决 CORS 问题
+- 🔧 **CLI 工具**: 完整命令行界面
 
-**开发进度**: Day 1 已完成，Day 2 进行中
-**预计完成**: 7-11 天
-**最后更新**: 2025-12-31
+### v1.0 - 初版发布 (2025-12-31)
+- ✅ 并行搜索引擎、多领域数据收集
+- 📊 328 项目，覆盖 4 个专业领域
+- 🤖 AI 智能推荐引擎
+- 🌟 顶级项目: langchain (123K⭐), markitdown (85K⭐), MetaGPT (62K⭐)
 
-**开发者**: [@corning-AI](https://github.com/corning-AI)
-**工具**: Claude Code with 10 parallel agents
+---
+
+**仓库**: https://github.com/Corning-AI/ai-agent-research
+**开发者**: [@Corning-AI](https://github.com/Corning-AI)
+**工具**: Claude Code + Claude Sonnet 4.5

@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(pwd:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(npm run:*)",
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(chmod:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(open:*)",
+      "Read(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Edit(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Write(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Glob(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Grep(/Users/xiaobotu/Documents/ai_agent/**)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)"
+    ],
+    "defaultMode": "dontAsk"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/auto-approve.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

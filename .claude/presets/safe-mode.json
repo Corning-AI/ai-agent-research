@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Glob(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Grep(/Users/xiaobotu/Documents/ai_agent/**)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(ls:*)",
+      "Bash(pwd:*)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)"
+    ],
+    "defaultMode": "dontAsk"
+  }
+}
