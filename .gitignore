@@ -37,3 +37,8 @@ Thumbs.db
 *.tmp
 temp/
 hello
+
+# Separate product repositories (git submodules or independent repos)
+CAiD/
+LaiTEX/
+PCBai/
